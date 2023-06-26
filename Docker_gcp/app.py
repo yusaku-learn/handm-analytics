@@ -79,7 +79,7 @@ def sampling_customer():
   # df1からdfのcustomer_idに該当する記録を抽出
   filtered_df = transaction_df[transaction_df['customer_id'].isin(XXX)]
 
-def arociation_model():
+def asociation_model():
   # 最新の日付を取得
   latest_date_str = filtered_df["t_dat"].max()
   # 年月日形式の文字列を日付オブジェクトに変換
@@ -99,3 +99,6 @@ def arociation_model():
   rules = association_rules(freq_article , metric="lift",min_threshold=0.001)
   
   rules.sort_values("lift",ascending=False)[["antecedents",	"consequents","lift"]].to_csv("gs://cloud_function_lift/rule.csv")
+
+  if __name__ == "__main__":
+    asociation_model()
