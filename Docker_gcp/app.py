@@ -5,7 +5,7 @@ import random
 import datetime
 from mlxtend.frequent_patterns import association_rules
 from mlxtend.frequent_patterns import apriori 
-from flask import Flask,requests,jsonify
+# from flask import Flask,requests,jsonify
 
 age_list = [20,30,40,50,60,70,80]
 random_dict = {}
@@ -84,6 +84,7 @@ def sampling_customer():
   XXX = filtered_records['customer_id'].tolist()
   # df1からdfのcustomer_idに該当する記録を抽出
   filtered_df = transaction_df[transaction_df['customer_id'].isin(XXX)]
+  return filtered_df
 
 def asociation_model():
   # 最新の日付を取得
@@ -106,8 +107,12 @@ def asociation_model():
   
   rules.sort_values("lift",ascending=False)[["antecedents",	"consequents","lift"]].to_csv("gs://cloud_function_lift/rule.csv")
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
+
+# if __name__ == "__main__":
+#   app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
 
 if __name__ == "__main__":
-  app.run(port=int(os.environ.get("PORT", 8080)),host='0.0.0.0',debug=True)
+  filtered_df = sampling_customer()
+  asociation_model()
