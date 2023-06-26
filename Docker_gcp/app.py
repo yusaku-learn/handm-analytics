@@ -9,22 +9,27 @@ from mlxtend.frequent_patterns import apriori
 age_list = [20,30,40,50,60,70,80]
 random_dict = {}
 
+customer_df = pd.read_csv("gs://handmdataset/customer_hm.csv")
+transactions_df = pd.read_csv("gs://handmdataset/transactions_train.csv")
 
-def hello_gcs(event, context):
-    """Triggered by a change to a Cloud Storage bucket.
-    Args:
-         event (dict): Event payload.
-         context (google.cloud.functions.Context): Metadata for the event.
-    """
-    file = event
-    base_object = "gs://"
-    bucket_and_object_name = file["id"].split("/")
-    object_url = base_object +"/"+bucket_and_object_name[0]+ "/"+bucket_and_object_name[1]
 
-    df_customer = pd.read_csv(object_url)
-    df_transaction = pd.read_csv("gs://handmdataset/transactions_train.csv")
+#def hello_gcs(event, context):
+#    """Triggered by a change to a Cloud Storage bucket.
+#    Args:
+#         event (dict): Event payload.
+#         context (google.cloud.functions.Context): Metadata for the event.
+#    """
+#    file = event
+#    base_object = "gs://"
+#    bucket_and_object_name = file["id"].split("/")
+#    object_url = base_object +"/"+bucket_and_object_name[0]+ "/"+bucket_and_object_name[1]
+#
+#    df_customer = pd.read_csv(object_url)
+#    df_transaction = pd.read_csv("gs://handmdataset/transactions_train.csv")
+#
+#    df_customer , df_transaction
 
-    df_customer , df_transaction
+
 
 def sampling_customer_sum(age):
   # 年代ごとの割合を計算
@@ -78,6 +83,7 @@ def sampling_customer():
   XXX = filtered_records['customer_id'].tolist()
   # df1からdfのcustomer_idに該当する記録を抽出
   filtered_df = transaction_df[transaction_df['customer_id'].isin(XXX)]
+  return filtered_df
 
 def asociation_model():
   # 最新の日付を取得
@@ -101,4 +107,5 @@ def asociation_model():
   rules.sort_values("lift",ascending=False)[["antecedents",	"consequents","lift"]].to_csv("gs://cloud_function_lift/rule.csv")
 
   if __name__ == "__main__":
+    filtered_df = sampling_customer()
     asociation_model()
