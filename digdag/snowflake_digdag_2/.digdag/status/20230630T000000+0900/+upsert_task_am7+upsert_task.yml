@@ -1,0 +1,10 @@
+fullName: "+upsert_task_am7+upsert_task"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

@@ -1,0 +1,12 @@
+timezone: Asia/Tokyo
+
+schedule:
+  daily>: 07:00:00
+
++upsert_customer_table:
+  snow>: upsert_customer_table.sql
+
++upsert_articles_table:
+  snow>: upsert_articles_table.sql
+
+

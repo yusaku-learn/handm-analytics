@@ -1,0 +1,19 @@
+_export:
+  plugin:
+    repositories:
+      - https://jitpack.io
+    dependencies:
+      - com.github.flinters:digdag_operator_snowflake:v0.1.3
+    snow:
+        host: hexemrw-gc97245.snowflakecomputing.com
+        user: RKSPUP
+        warehouse: compute_wh
+        session_unixtime_sql_variable_name: session_time
+        role: sysadmin
+
++run_task:
+    snow>: create_temp_customer.sql
+    database: HANDM
+    schema: public
+    timezone: Asia/Tokyo
+    create_or_replace_table: temp_customer_table

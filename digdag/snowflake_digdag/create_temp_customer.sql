@@ -1,4 +1,4 @@
-CREATE OR REPLACE TABLE temp_customer_table(
+CREATE OR REPLACE TABLE HANDM.public.temp_customer_table(
 customer_id string,
 FN int,
 active int,

@@ -1,0 +1,10 @@
+fullName: "+first_query_snow_4+run_task"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

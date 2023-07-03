@@ -1,0 +1,9 @@
+_export:
+  !include : /Users/uchiiyusaku/Desktop/handm-analytics/digdag/snowflake_digdag_3/config.yaml
+
++run_task:
+  +create_temp_table:
+    call>: /Users/uchiiyusaku/Desktop/handm-analytics/digdag/snowflake_digdag_3/create_temp_table_pm11.dig
+  +upsert_table:
+    call>: /Users/uchiiyusaku/Desktop/handm-analytics/digdag/snowflake_digdag_3/upsert_task_am7.dig
+

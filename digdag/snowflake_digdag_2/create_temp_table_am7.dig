@@ -1,0 +1,49 @@
+timezone: Asia/Tokyo
+
+schedule:
+  daily>: 05:00:00
+
+_export:
+  plugin:
+    repositories:
+      - https://jitpack.io
+    dependencies:
+      - com.github.flinters:digdag_operator_snowflake:v0.1.3
+    snow:
+        host: hexemrw-gc97245.snowflakecomputing.com
+        user: RKSPUP
+        warehouse: compute_wh
+        session_unixtime_sql_variable_name: session_time
+        role: ACCOUNTADMIN
+  
+
++create_temp_task:
+  +customer_task:
+    snow>: create_temp_customer.sql 
+    database: HANDM
+    schema: public
+    timezone: Asia/Tokyo
+
+  +articles_task:
+    snow>: create_temp_articles.sql
+    database: HANDM
+    schema: public
+    timezone: Asia/Tokyo
+
+timezone: Asia/Tokyo
+
+schedule:
+  daily>: 05:00:00
+
++upsert_task:
+  +upsert_customer_table:
+    snow>: upsert_customer_table.sql
+    database: HANDM
+    schema: public
+    timezone: Asia/Tokyo
+
+  +upsert_articles_table:
+    snow>: upsert_articles_table.sql
+    database: HANDM
+    schema: public
+    timezone: Asia/Tokyo
