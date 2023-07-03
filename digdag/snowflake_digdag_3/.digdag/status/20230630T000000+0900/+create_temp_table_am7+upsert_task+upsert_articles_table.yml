@@ -1,0 +1,10 @@
+fullName: "+create_temp_table_am7+upsert_task+upsert_articles_table"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

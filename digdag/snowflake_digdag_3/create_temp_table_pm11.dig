@@ -1,0 +1,11 @@
+timezone: Asia/Tokyo
+
+schedule:
+  daily>: 23:00:00
+
++create_customer_temp_table:
+  snow>: create_temp_customer.sql
+
++create_articles_temp_table:
+  snow>: create_temp_articles.sql
+

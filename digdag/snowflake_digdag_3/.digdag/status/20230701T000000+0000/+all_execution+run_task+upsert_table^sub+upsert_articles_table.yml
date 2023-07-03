@@ -1,0 +1,10 @@
+fullName: "+all_execution+run_task+upsert_table^sub+upsert_articles_table"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

@@ -1,0 +1,10 @@
+fullName: "+all_execution+run_task+create_temp_table^sub"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []
