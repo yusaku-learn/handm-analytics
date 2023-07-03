@@ -4,8 +4,8 @@ plugin:
   dependencies:
     - com.github.flinters:digdag_operator_snowflake:v0.1.3
 snow:
-    host: hexemrw-gc97245.snowflakecomputing.com
-    user: RKSPUP
+    host: hexemrw-XXXXX.snowflakecomputing.com
+    user: XXXXX
     warehouse: compute_wh
     session_unixtime_sql_variable_name: session_time
     role: ACCOUNTADMIN
