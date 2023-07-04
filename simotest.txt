@@ -1,0 +1,6 @@
+gitの共有の仕方（Windousバージョンの手順）
+テキストファイルを作成する。その後に、
+①git add simotest.txt
+②git commit -m "sukinamoziretu"
+③git push origin 0626
+以上の３ステップで追加でバッシュを行うことが可能である。
