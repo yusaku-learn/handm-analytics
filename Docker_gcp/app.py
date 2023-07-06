@@ -10,10 +10,18 @@ from mlxtend.frequent_patterns import apriori
 age_list = [20,30,40,50,60,70,80]
 random_dict = {}
 
+'''
+csvファイルの名前の読み込みは、pub/subを使う。
+①BigqueryでCSVファイルを吐き出す作業をする。
+②吐き出したcsvファイルをCloudStorageへ
+③Cloud storageへ投入されたらpub/subを使ってCloud Runに食わせる。
+④そのcsvファイルを下で読み込む（今は静的だが、後に動的にさせる。）
+'''
+
 customer_df = pd.read_csv("gs://handmdataset/customer_hm.csv")
 transactions_df = pd.read_csv("gs://handmdataset/transactions_train.csv")
 
-
+'''Cloud functionで動かした際の残骸
 #def hello_gcs(event, context):
 #    """Triggered by a change to a Cloud Storage bucket.
 #    Args:
@@ -29,8 +37,7 @@ transactions_df = pd.read_csv("gs://handmdataset/transactions_train.csv")
 #    df_transaction = pd.read_csv("gs://handmdataset/transactions_train.csv")
 #
 #    df_customer , df_transaction
-
-
+'''
 
 def sampling_customer_sum(age):
   # 年代ごとの割合を計算
