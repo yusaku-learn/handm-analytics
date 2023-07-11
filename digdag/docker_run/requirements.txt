@@ -1,0 +1,6 @@
+pandas==1.5.3
+fsspec
+gcsfs
+google-cloud-storage
+Flask==2.1.0
+

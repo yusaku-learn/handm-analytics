@@ -1,0 +1,41 @@
+fullName: "+sample-dag+repeat"
+state: "success"
+result:
+  subtaskConfig:
+    "+for-0=order=0=first&1=animal=0=dog":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "first"
+        animal: "dog"
+    "+for-0=order=0=first&1=animal=1=cat":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "first"
+        animal: "cat"
+    "+for-0=order=1=second&1=animal=0=dog":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "second"
+        animal: "dog"
+    "+for-0=order=1=second&1=animal=1=cat":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "second"
+        animal: "cat"
+    "+for-0=order=2=third&1=animal=0=dog":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "third"
+        animal: "dog"
+    "+for-0=order=2=third&1=animal=1=cat":
+      echo>: "${order} ${animal}"
+      _export:
+        order: "third"
+        animal: "cat"
+    _parallel: true
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

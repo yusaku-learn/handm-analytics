@@ -1,0 +1,1 @@
+docker run ponkomarupon/yusaku-digdag:latest

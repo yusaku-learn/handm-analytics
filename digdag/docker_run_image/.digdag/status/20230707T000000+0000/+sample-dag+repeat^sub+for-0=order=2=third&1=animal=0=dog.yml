@@ -1,0 +1,10 @@
+fullName: "+sample-dag+repeat^sub+for-0=order=2=third&1=animal=0=dog"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

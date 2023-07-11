@@ -1,0 +1,10 @@
+fullName: "+sample-dag+disp_current_date"
+state: "success"
+result:
+  subtaskConfig: {}
+  exportParams: {}
+  resetStoreParams: []
+  storeParams: {}
+  report:
+    inputs: []
+    outputs: []

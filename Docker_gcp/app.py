@@ -5,6 +5,7 @@ import random
 import datetime
 from mlxtend.frequent_patterns import association_rules
 from mlxtend.frequent_patterns import apriori 
+import Flask
 # from flask import Flask,requests,jsonify
 
 age_list = [20,30,40,50,60,70,80]
@@ -19,7 +20,7 @@ csvファイルの名前の読み込みは、pub/subを使う。
 '''
 
 customer_df = pd.read_csv("gs://handmdataset/customer_hm.csv")
-transactions_df = pd.read_csv("gs://handmdataset/transactions_train.csv")
+transaction_df = pd.read_csv("gs://handmdataset/transactions_train.csv")
 
 '''Cloud functionで動かした際の残骸
 #def hello_gcs(event, context):
@@ -110,7 +111,7 @@ def asociation_model():
   cross_table = cross_table.astype('object')
   freq_article = apriori(cross_table, min_support=0.001, use_colnames=True)
   freq_article.sort_values("support", ascending=False)
-  rules = association_rules(freq_article , metric="lift",min_threshold=0.001)
+  rules = association_rules(freq_article , metric="lift",min_threshold=0.005)
   
   rules.sort_values("lift",ascending=False)[["antecedents",	"consequents","lift"]].to_csv("gs://cloud_function_lift/rule.csv")
 
